@@ -1,0 +1,24 @@
+<html>
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="manifest" href="/app/manifest.json">
+    <meta name="apple-mobile-web-app-title" content="YourAppName">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  </head>
+
+  <body style="margin: 0px;">
+    <app></app>
+
+    <script src="/js/moment-with-locales.min.js"></script>
+    <script src="/js/riot.min.js"></script>
+    <script src="/js/route.min.js"></script>
+    <script src="/js/tags.js"></script>
+    <script>
+      riot.mount('app');
+      route.start(true);
+    </script>
+
+  </body>
+
+</html>
