@@ -9,5 +9,7 @@ config.mongodb.database = "database";
 
 config.twitter.consumerKey = "consumerKey",
 config.twitter.consumerSecret = "consumerSecret",
+  
+config.express.sessionSecret: 'YOURAPPSECRET',
 
 module.exports = config;
