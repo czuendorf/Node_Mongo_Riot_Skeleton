@@ -3,10 +3,11 @@ let passport = require('passport');
 let Strategy = require('passport-twitter').Strategy;
 let ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 let router = express.Router();
+let config = require('../config');
 
 passport.use(new Strategy({
-    consumerKey: "consumerKey",
-    consumerSecret: "consumerSecret",
+    consumerKey: config.twitter.consumerKey,
+    consumerSecret: config.twitter.consumerSecret,
     callbackURL: '/login/twitter/callback'
 }, function(token, tokenSecret, profile, callback) {
     let User = require('./user').model;
@@ -50,7 +51,7 @@ router.use(require('body-parser').urlencoded({
     extended: true
 }));
 router.use(require('express-session')({
-    secret: 'YOURAPPSECRET',
+    secret: config.express.sessionSecret,
     maxAge: 360 * 5,
     resave: true,
     saveUninitialized: true
