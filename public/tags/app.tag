@@ -4,7 +4,7 @@
     var self = this;
     self.data = [
         { id: "overview", ref: "overview_page"}
-    ]
+    ];
 
     route(function(id) {
         self.page = self.data.filter(function(r) { return r.id == id })[0] || self.data[0];
@@ -16,10 +16,11 @@
         var nextPage = self.refs[self.page.ref];
         nextPage.setVisibility(true);
         self.currentPage = nextPage;
-    })
+    });
 
     var appmodel = {
         user: null,
+        appname: opts.appname,
         "fetchUserData" : function() {
             var self = this;
             if (this.user) {
@@ -40,7 +41,7 @@
                 });
             });
         }
-    }
+    };
 
     riot.observable(appmodel);
     riot.mixin({"appmodel":appmodel});

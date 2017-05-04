@@ -1,5 +1,7 @@
 <appheader>
-  <div><backbutton if={opts.navback}></backbutton>{title || opts.title}</div>
+  <div>
+    <backbutton if={opts.navback}></backbutton>{title || opts.title}
+  </div>
 
   this.on('update_title', function(title) {
     this.title = title;

@@ -1,6 +1,6 @@
 let express = require('express');
-let app = express();
 let ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
+let app = express();
 
 app.set('port', (process.env.PORT || 5000));
 

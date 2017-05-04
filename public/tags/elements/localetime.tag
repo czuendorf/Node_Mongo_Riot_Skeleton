@@ -6,11 +6,4 @@
     var localtime = moment(this.opts.timestamp).format('llll');
     this.refs.time.innerHTML = localtime;
   });
-
-  <style>
-    localetime {
-
-    }
-  </style>
-
 </localetime>

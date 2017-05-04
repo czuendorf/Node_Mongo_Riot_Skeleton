@@ -1,8 +1,7 @@
-<!-- login view -->
 <login>
-  <herounit title="Eat Sleep Rave Repeat">
+  <herounit title="{ opts.appname }">
     <p>
-      Eat Sleep Rave Repeat
+      Welcome to { opts.appname }
     </p>
     <p>
       <actionbutton caption="Login via Twitter" href="/login/twitter"></actionbutton>

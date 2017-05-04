@@ -23,7 +23,7 @@
       padding-right: 0.5rem;
     }
 
-    userinfobox img {
+    userinfobox > img {
       border-radius: 5px;
     }
   </style>

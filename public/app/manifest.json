@@ -1,6 +1,6 @@
 {
-  "short_name": "YourAppName",
-  "name": "YourAppName",
+  "short_name": "YAP",
+  "name": "Your App Name",
   "display": "standalone",
   "orientation": "portrait"
 }

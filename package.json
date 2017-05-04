@@ -1,6 +1,6 @@
 {
-  "name": "AppTitle",
-  "version": "1.0",
+  "name": "YourAppName",
+  "version": "1.0.0",
   "description": "Your description goes here",
   "engines": {
     "node": "6.10.2"
@@ -24,10 +24,6 @@
     "passport-twitter": "^1.0.4",
     "request": "^2.78.0",
     "riot": "^3.0.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gitrepo"
   },
   "keywords": [
     "node",

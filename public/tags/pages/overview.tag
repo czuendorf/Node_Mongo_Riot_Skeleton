@@ -1,6 +1,6 @@
 <overview show={ visible }>
-  <appheader title="Eat Sleep Rave Repeat"></appheader>
-  <infobox>This app will change your life.</infobox>
+  <appheader title="{ this.appmodel.appname }"></appheader>
+  <infobox>Your app description goes here...</infobox>
   <content>
     <userinfobox ref="userinfobox" userdata=""></userinfobox>
     <buttonbox>
