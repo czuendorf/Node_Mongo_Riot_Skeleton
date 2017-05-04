@@ -3,16 +3,15 @@ let path = require('path');
 let router = express.Router();
 
 router.get('/',
-    function(req, res) {
+    function (req, res) {
         res.sendFile(path.resolve('./public/app/index.html'));
     });
 
 router.get('/userdata',
-    function(req, res) {
-        let userData = {
-            "user" : req.user
-        };
-        res.send(userData);
+    function (req, res) {
+        res.send({
+            "user": req.user
+        });
     });
 
 module.exports = {

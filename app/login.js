@@ -1,7 +1,6 @@
-let express = require('express');
 let passport = require('passport');
 let Strategy = require('passport-twitter').Strategy;
-let ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
+let express = require('express');
 let router = express.Router();
 let config = require('../config');
 
@@ -9,11 +8,11 @@ passport.use(new Strategy({
     consumerKey: config.twitter.consumerKey,
     consumerSecret: config.twitter.consumerSecret,
     callbackURL: '/login/twitter/callback'
-}, function(token, tokenSecret, profile, callback) {
+}, function (token, tokenSecret, profile, callback) {
     let User = require('./user').model;
     User.find({
         twitterUserId: profile.id
-    }, function(err, user) {
+    }, function (err, user) {
         if (user.length == 0) {
             let newUser = new User({
                 twitterUserId: profile.id,
@@ -22,7 +21,7 @@ passport.use(new Strategy({
                 image: profile.photos.length > 0 ? profile.photos[0].value : null
             });
 
-            newUser.save(function(err, user) {
+            newUser.save(function (err, user) {
                 return callback(err, profile);
             });
         } else {
@@ -31,15 +30,15 @@ passport.use(new Strategy({
     });
 }));
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
     done(null, user.id);
 });
 
-passport.deserializeUser(function(id, done) {
+passport.deserializeUser(function (id, done) {
     let User = require('./user').model;
     User.findOne({
         twitterUserId: id
-    }, function(err, user) {
+    }, function (err, user) {
         done(err, user);
     });
 });
@@ -60,7 +59,7 @@ router.use(require('express-session')({
 router.use(passport.initialize());
 router.use(passport.session());
 
-router.get('/login', function(req, res) {
+router.get('/login', function (req, res) {
     let path = require('path');
     res.sendFile(path.resolve('./public/app/login.html'));
 });
@@ -73,7 +72,7 @@ router.get('/login/twitter/callback',
         failureRedirect: '/login'
     }));
 
-router.get('/login/exit', function(req, res) {
+router.get('/login/exit', function (req, res) {
     req.logOut();
     res.redirect("/");
 });
