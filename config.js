@@ -1,15 +1,20 @@
-let config = {};
+let config = {
+    mongodb: {
+        username: "username",
+        password: "password",
+        host: "host",
+        port: "port",
+        database: "database"
+    },
 
-config.mongodb = {};
-config.mongodb.username = "username";
-config.mongodb.password = "password";
-config.mongodb.host = "host";
-config.mongodb.port = "port";
-config.mongodb.database = "database";
+    twitter: {
+        consumerKey: "consumerKey",
+        consumerSecret: "consumerSecret"
+    },
 
-config.twitter.consumerKey = "consumerKey";
-config.twitter.consumerSecret = "consumerSecret";
-  
-config.express.sessionSecret= 'YOURAPPSECRET';
+    express: {
+        sessionSecret: 'sessionSecret'
+    }
+};
 
 module.exports = config;

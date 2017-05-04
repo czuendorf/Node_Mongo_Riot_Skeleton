@@ -1,5 +1,5 @@
 let ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
-let database = require('./database');
+let database = require('./app/database');
 database.connect();
 let express = require('express');
 let app = express();
