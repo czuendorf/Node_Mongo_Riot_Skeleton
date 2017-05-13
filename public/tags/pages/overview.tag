@@ -1,5 +1,5 @@
 <overview show={ visible }>
-  <appheader title="{ this.appmodel.appname }"></appheader>
+  <appheader title="{ this.model.appname }"></appheader>
   <infobox>Your app description goes here...</infobox>
   <content>
     <userinfobox ref="userinfobox" userdata=""></userinfobox>

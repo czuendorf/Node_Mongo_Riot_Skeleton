@@ -8,13 +8,16 @@
   </head>
 
   <body style="margin: 0px;">
-    <app appname="Your App Name"></app>
+    <app></app>
 
-    <script src="/js/moment-with-locales.min.js"></script>
-    <script src="/js/riot.min.js"></script>
-    <script src="/js/route.min.js"></script>
+    <script src="/js/lib/moment-with-locales.min.js"></script>
+    <script src="/js/lib/riot.min.js"></script>
+    <script src="/js/lib/route.min.js"></script>
     <script src="/js/tags.js"></script>
+    <script src="/js/model.js"></script>
     <script>
+      riot.observable(model);
+      riot.mixin({"model":model});
       riot.mount('app');
       route.start(true);
     </script>

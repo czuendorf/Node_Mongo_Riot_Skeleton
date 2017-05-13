@@ -3,13 +3,13 @@ let Strategy = require('passport-twitter').Strategy;
 let express = require('express');
 let router = express.Router();
 let config = require('../config');
+let User = require('./schema/user').model;
 
 passport.use(new Strategy({
     consumerKey: config.twitter.consumerKey,
     consumerSecret: config.twitter.consumerSecret,
     callbackURL: '/login/twitter/callback'
 }, function (token, tokenSecret, profile, callback) {
-    let User = require('./user').model;
     User.find({
         twitterUserId: profile.id
     }, function (err, user) {
@@ -35,7 +35,6 @@ passport.serializeUser(function (user, done) {
 });
 
 passport.deserializeUser(function (id, done) {
-    let User = require('./user').model;
     User.findOne({
         twitterUserId: id
     }, function (err, user) {

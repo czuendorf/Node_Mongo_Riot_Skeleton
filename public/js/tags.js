@@ -16,34 +16,6 @@ riot.tag2('app', '<overview ref="overview_page"></overview>', '', '', function(o
         self.currentPage = nextPage;
     });
 
-    var appmodel = {
-        user: null,
-        appname: opts.appname,
-        "fetchUserData" : function() {
-            var self = this;
-            if (this.user) {
-                self.trigger("update_user", this.user);
-                return;
-            }
-            fetch('/userdata', {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/JSON; charset=utf-8'
-                },
-                credentials: 'include'
-            }).then(function(response) {
-                response.json().then(function(json) {
-                    self.user = json.user;
-                    self.trigger("update_user", json.user);
-                });
-            });
-        }
-    };
-
-    riot.observable(appmodel);
-    riot.mixin({"appmodel":appmodel});
-
 });
 
 riot.tag2('actionbutton', '<span>{opts.caption}</span>', 'actionbutton { display: inline-flex; user-select: none; align-items: center; justify-content: center; font-family: Helvetica; font-weight: bold; background: grey; color: white; padding-left: 1rem; padding-right: 1rem; border-radius: 5px; text-align: center; min-height: 2rem; cursor: pointer; }', 'onclick="{onClick}"', function(opts) {
@@ -115,7 +87,7 @@ riot.tag2('userinfobox', '<img ref="user_image" riot-src="{this.userdata.image |
 
 });
 
-riot.tag2('login', '<herounit title="{opts.appname}"> <p> Welcome to {opts.appname} </p> <p> <actionbutton caption="Login via Twitter" href="/login/twitter"></actionbutton> </p> </herounit>', '', '', function(opts) {
+riot.tag2('login', '<herounit title="{this.appmodel.appname}"> <p> Welcome to {this.appmodel.appname} </p> <p> <actionbutton caption="Login via Twitter" href="/login/twitter"></actionbutton> </p> </herounit>', '', '', function(opts) {
 });
 
 riot.tag2('overview', '<appheader title="{this.appmodel.appname}"></appheader> <infobox>Your app description goes here...</infobox> <content> <userinfobox ref="userinfobox" userdata=""></userinfobox> <buttonbox> <actionbutton caption="Example Button" href="#nextPage"></actionbutton> </buttonbox> </content>', '', 'show="{visible}"', function(opts) {

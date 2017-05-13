@@ -1,7 +1,7 @@
 <login>
-  <herounit title="{ opts.appname }">
+  <herounit title="{ this.model.appname }">
     <p>
-      Welcome to { opts.appname }
+      Welcome to { this.model.appname }
     </p>
     <p>
       <actionbutton caption="Login via Twitter" href="/login/twitter"></actionbutton>

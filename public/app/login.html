@@ -8,12 +8,15 @@
   </head>
 
   <body style="margin: 0px;">
-    <login appname="Your App Name"></login>
+    <login></login>
 
-    <script src="/js/riot.min.js"></script>
+    <script src="/js/lib/riot.min.js"></script>
     <script src="/js/tags.js"></script>
+    <script src="/js/model.js"></script>
 
     <script>
+      riot.observable(model);
+      riot.mixin({"model":model});
       riot.mount('login');
     </script>
 
